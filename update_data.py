@@ -100,18 +100,18 @@ def listAvailableImg():
     fOut.write(s)
 
 
-#def create_thumbnail(file):
-#    pdf_path = os.path.join(PAPERS_DIR, file)
-#    thumbnail_path = os.path.join(PAPERS_IMG_DIR, file.replace(".pdf", ".png"))
-#
-#    if os.path.isfile(thumbnail_path):
-#        print(f"Skipping thumbnail generation for existing file {thumbnail_path}")
-#    else:
-#        print(f"Generate thumbnail for {file} and save it to {thumbnail_path}")
-#        with tempfile.TemporaryDirectory() as path:
-#            pages = convert_from_path(pdf_path, 72, output_folder=path, last_page=1, fmt="png")
-#            pages[0].save(thumbnail_path)
-#            print("Done.")
+def create_thumbnail(file):
+   pdf_path = os.path.join(PAPERS_DIR, file)
+   thumbnail_path = os.path.join(PAPERS_IMG_DIR, file.replace(".pdf", ".png"))
+
+   if os.path.isfile(thumbnail_path):
+       print(f"Skipping thumbnail generation for existing file {thumbnail_path}")
+   else:
+       print(f"Generate thumbnail for {file} and save it to {thumbnail_path}")
+       with tempfile.TemporaryDirectory() as path:
+           pages = convert_from_path(pdf_path, 72, output_folder=path, last_page=1, fmt="png")
+           pages[0].save(thumbnail_path)
+           print("Done.")
 
 
 def update():
